@@ -1,0 +1,191 @@
+/*
+ * CSS Variables
+ */
+:root {
+  --black: black;
+  --blue: darkblue;
+  --grey: grey;
+  --red: red;
+  --white: white;
+}
+
+/*
+ * Layout
+ */
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: sans-serif;
+  margin: 0;
+}
+main {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 1rem;
+  width: 100%;
+}
+h2 {
+  padding: 0.5rem;
+  text-align: center;
+}
+img {
+  max-width: 100%;
+}
+
+/*
+ * Accordion Controls
+ */
+#accordion-controls {
+  display: flex;
+  gap: 1rem;
+}
+@media screen and (max-width: 768px) {
+  #accordion-controls {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+#accordion-controls button {
+  border-style: solid;
+  border-width: 2px;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 1rem;
+  text-transform: uppercase;
+}
+
+/*
+ * Accordion
+ */
+.accordion {
+  list-style: none;
+  padding: 0;
+}
+.accordion li {
+  margin: 0 0 0.5rem;
+}
+.accordion h3 {
+  border-style: solid;
+  border-width: 2px;
+  cursor: pointer;
+  margin: 0;
+  padding: 1rem;
+  text-transform: uppercase;
+}
+.accordion div {
+  height: 0;
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 1rem;
+  transition: max-height, padding 0.25s;
+}
+.accordion div.selected {
+  height: auto;
+  max-height: 1000px;
+  padding: 1rem;
+}
+.accordion p {
+  line-height: 1.33;
+}
+
+/*
+ * Accordion 1 styles
+ */
+.body--accordion-1 {
+  background-color: var(--white);
+  background-image: linear-gradient(to right, var(--grey) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grey) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.body--accordion-1 h2 {
+  background: var(--white);
+}
+.body--accordion-1 #accordion-controls button:hover,
+.body--accordion-1 #accordion-controls button:focus,
+.body--accordion-1 #accordion-controls button.selected {
+  background: var(--blue);
+  border-color: var(--white);
+  color: var(--white);
+}
+.body--accordion-1 #accordion-controls button,
+.body--accordion-1 #accordion-controls button:active {
+  background: var(--white);
+  border-color: var(--blue);
+  color: var(--blue);
+}
+.body--accordion-1 .accordion {
+  background: var(--white);
+}
+.body--accordion-1 .accordion h3 {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: var(--white);
+}
+.body--accordion-1 .accordion h3:hover,
+.body--accordion-1 .accordion h3:focus {
+  background: var(--white);
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+/*
+ * Accordion 2 styles
+ */
+.body--accordion-2 {
+  background-color: var(--black);
+  background-image: linear-gradient(to right, var(--grey) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grey) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.body--accordion-2 h2 {
+  background: var(--black);
+  color: var(--white);
+}
+.body--accordion-2 #accordion-controls button:hover,
+.body--accordion-2 #accordion-controls button:focus,
+.body--accordion-2 #accordion-controls button.selected {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--black);
+}
+.body--accordion-2 #accordion-controls button,
+.body--accordion-2 #accordion-controls button:active {
+  background: var(--black);
+  border-color: var(--red);
+  color: var(--red);
+}
+.body--accordion-2 .accordion {
+  background: var(--black);
+}
+.body--accordion-2 .accordion h3 {
+  background: var(--black);
+  border-color: var(--red);
+  color: var(--red);
+}
+.body--accordion-2 .accordion h3:hover,
+.body--accordion-2 .accordion h3:focus {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--black);
+}
+.body--accordion-2 .accordion p {
+  color: var(--white);
+}
+
+/*
+ * No JS?
+ * @desc - To be displayed if the user has JS disabled
+ */
+.no-js #accordion-controls {
+  display: none;
+}
+.no-js .accordion h3 {
+  cursor: unset;
+}
+.no-js .accordion div {
+  height: auto;
+}
