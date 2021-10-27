@@ -173,6 +173,7 @@ if (isArr($accordion)) {
     clickLstr(item, (e) => {
       // Accordion 1?
       if (hasCls("body", "body--accordion-1")) {
+        toggleCls((input = e.currentTarget), (clsName = "selected"));
         toggleCls(
           (input = e.currentTarget.nextElementSibling),
           (clsName = "selected")
@@ -186,9 +187,12 @@ if (isArr($accordion)) {
           (clsName = "selected")
         )
       ) {
+        removeCls((input = ".accordion li h3"), (clsName = "selected"));
         removeCls((input = ".accordion li div"), (clsName = "selected"));
       } else {
+        removeCls((input = ".accordion li h3"), (clsName = "selected"));
         removeCls((input = ".accordion li div"), (clsName = "selected"));
+        addCls((input = e.currentTarget), (clsName = "selected"));
         addCls(
           (input = e.currentTarget.nextElementSibling),
           (clsName = "selected")
@@ -202,24 +206,44 @@ if (isArr($accordion)) {
  * Accordion Buttons
  * @desc - These control which accordion functionality is seen by removing & adding classes to the DOM
  */
+
+let removeArr = {
+  ".accordion-btn": "selected",
+  ".accordion li h3": "selected",
+  ".accordion li div": "selected",
+  ".accordion": "accordion-2",
+  body: "body--accordion-2",
+};
+let removeArr2 = Object.assign({}, removeArr);
+removeArr2[".accordion"] = "accordion-1";
+removeArr2["body"] = "body--accordion-1";
+
+let addArr = {
+  ".accordion li:first-of-type h3": "selected",
+  ".accordion li:first-of-type div": "selected",
+  body: "body--accordion-1",
+  ".accordion": "accordion--1",
+};
+let addArr2 = Object.assign({}, addArr);
+addArr2["body"] = "body--accordion-2";
+addArr2[".accordion"] = "accordion--2";
+
 clickLstr(document.querySelector(".accordion-btn--1"), (e) => {
-  removeCls((input = ".accordion-btn"), (clsName = "selected"));
-  removeCls((input = ".accordion li div"), (clsName = "selected"));
-  removeCls((input = ".accordion"), (clsName = "accordion-2"));
-  removeCls((input = "body"), (clsName = "body--accordion-2"));
-  addCls((input = ".accordion li:first-of-type div"), (clsName = "selected"));
-  addCls((input = "body"), (clsName = "body--accordion-1"));
+  for (var key in removeArr) {
+    removeCls((input = key), (clsName = removeArr[key]));
+  }
+  for (var key in addArr) {
+    addCls((input = key), (clsName = addArr[key]));
+  }
   addCls((input = e.currentTarget), (clsName = "selected"));
-  addCls((input = ".accordion"), (clsName = "accordion--1"));
 });
 
 clickLstr(document.querySelector(".accordion-btn--2"), (e) => {
-  removeCls((input = ".accordion-btn"), (clsName = "selected"));
-  removeCls((input = ".accordion li div"), (clsName = "selected"));
-  removeCls((input = ".accordion"), (clsName = "accordion-1"));
-  removeCls((input = "body"), (clsName = "body--accordion-1"));
-  addCls((input = ".accordion li:first-of-type div"), (clsName = "selected"));
-  addCls((input = "body"), (clsName = "body--accordion-2"));
+  for (var key in removeArr2) {
+    removeCls((input = key), (clsName = removeArr2[key]));
+  }
+  for (var key in addArr2) {
+    addCls((input = key), (clsName = addArr2[key]));
+  }
   addCls((input = e.currentTarget), (clsName = "selected"));
-  addCls((input = ".accordion"), (clsName = "accordion--2"));
 });

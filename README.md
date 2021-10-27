@@ -2,7 +2,7 @@
 
 ## Description
 
-I have intentionally avoided all preprocessors and build tools and created this accordion with just CSS, HTML and JS.
+I have intentionally avoided all preprocessors and build tools and created this accordion with just CSS, HTML and JS. I have included utility classes which I would see as being used by this component and others.
 
 ### Browsers
 
@@ -11,6 +11,7 @@ Tested in:
 - Chrome (Linux)
 - Firefox (Linux)
 - Edge (Linux)
+- Chrome (Android)
 
 #### Small print
 

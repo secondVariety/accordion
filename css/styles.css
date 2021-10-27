@@ -120,16 +120,18 @@ img {
 .body--accordion-1 .accordion {
   background: var(--white);
 }
-.body--accordion-1 .accordion h3 {
-  background: var(--blue);
-  border-color: var(--blue);
-  color: var(--white);
-}
 .body--accordion-1 .accordion h3:hover,
-.body--accordion-1 .accordion h3:focus {
+.body--accordion-1 .accordion h3:focus,
+.body--accordion-1 .accordion h3.selected {
   background: var(--white);
   border-color: var(--blue);
   color: var(--blue);
+}
+.body--accordion-1 .accordion h3,
+.body--accordion-1 .accordion h3:active {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: var(--white);
 }
 
 /*
@@ -161,16 +163,18 @@ img {
 .body--accordion-2 .accordion {
   background: var(--black);
 }
-.body--accordion-2 .accordion h3 {
-  background: var(--black);
-  border-color: var(--red);
-  color: var(--red);
-}
 .body--accordion-2 .accordion h3:hover,
-.body--accordion-2 .accordion h3:focus {
+.body--accordion-2 .accordion h3:focus,
+.body--accordion-2 .accordion h3.selected {
   background: var(--red);
   border-color: var(--red);
   color: var(--black);
+}
+.body--accordion-2 .accordion h3,
+.body--accordion-2 .accordion h3:active {
+  background: var(--black);
+  border-color: var(--red);
+  color: var(--red);
 }
 .body--accordion-2 .accordion p {
   color: var(--white);
@@ -188,4 +192,5 @@ img {
 }
 .no-js .accordion div {
   height: auto;
+  max-height: fit-content;
 }
